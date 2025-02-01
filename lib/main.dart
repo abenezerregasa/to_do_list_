@@ -30,10 +30,10 @@ class TodoHome extends StatefulWidget {
 
 class _TodoHomeState extends State<TodoHome> {
   final TextEditingController _controller = TextEditingController();
-  List<String> _tasks = [];
+  final List<String> _tasks = [];
 
   void _addTask() {
-    String task = _controller.text;
+    String task = _controller.text.trim();
     if(task.isNotEmpty){
       setState(() {
         _tasks.add(task);
