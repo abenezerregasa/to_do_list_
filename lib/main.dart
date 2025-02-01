@@ -35,6 +35,46 @@ class _TodoHomeState extends State<TodoHome> {
       appBar: AppBar(
         title: Text('To-Do List'),
         centerTitle: true,
+
+      ),
+
+      body: Column(
+        children: [
+          Padding(
+            padding: EdgeInsets.all(8.0),
+
+            child: Row(
+              children: [
+                Expanded(
+                  child: TextField(
+                    decoration: InputDecoration(
+                      hintText: "Enter a task",
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(4))
+
+
+
+                    ),
+                  ),
+
+              
+                   ),
+                   SizedBox(width: 10,),
+                   ElevatedButton(
+                    onPressed:  () {}, 
+                    child: Text("Add"),
+                    
+                    )
+       
+              ],
+            ),
+            
+            
+            ),
+
+
+            
+        ],
       ),
 
     );
