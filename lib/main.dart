@@ -48,7 +48,17 @@ class _TodoHomeState extends State<TodoHome> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('To-Do List'),
+        backgroundColor: Colors.blueGrey,
+      
+        title: Text(
+          'To Do List', 
+          style: TextStyle(
+            color: Colors.white,
+          
+          ),
+          
+          ),
+          elevation: 0,
         centerTitle: true,
 
       ),
