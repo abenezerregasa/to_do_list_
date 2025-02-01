@@ -29,6 +29,20 @@ class TodoHome extends StatefulWidget {
 }
 
 class _TodoHomeState extends State<TodoHome> {
+  final TextEditingController _controller = TextEditingController();
+  List<String> _tasks = [];
+
+  void _addTask() {
+    String task = _controller.text;
+    if(task.isNotEmpty){
+      setState(() {
+        _tasks.add(task);
+        _controller.clear();
+      });
+    }
+
+
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,6 +61,7 @@ class _TodoHomeState extends State<TodoHome> {
               children: [
                 Expanded(
                   child: TextField(
+                    controller: _controller,
                     decoration: InputDecoration(
                       hintText: "Enter a task",
                       border: OutlineInputBorder(
@@ -61,7 +76,7 @@ class _TodoHomeState extends State<TodoHome> {
                    ),
                    SizedBox(width: 10,),
                    ElevatedButton(
-                    onPressed:  () {}, 
+                    onPressed: _addTask,
                     child: Text("Add"),
                     
                     )
@@ -72,8 +87,22 @@ class _TodoHomeState extends State<TodoHome> {
             
             ),
 
+            Expanded(
+              child: ListView.builder(
+                itemCount: _tasks.length ,
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    title: Text(_tasks[index]),
 
-            
+                  );
+                },
+
+              ),
+              
+              )
+
+
+
         ],
       ),
 
